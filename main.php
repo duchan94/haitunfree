@@ -274,7 +274,6 @@ homeLY={
             ImageView;
             layout_height="4%h";
             layout_width="4%h";
-            colorFilter="0xffffffff";
             src="https://raw.githubusercontent.com/duchan94/haitunfree/main/ic_telegram.png";
           };
           {

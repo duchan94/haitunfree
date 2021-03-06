@@ -16,7 +16,7 @@ import "zip4j"
 homeLY={
   LinearLayout;
   orientation="vertical";
-  background="https://ndhscript.000webhostapp.com/test/res/bg.png";
+  background="https://raw.githubusercontent.com/duchan94/haitunfree/main/bg.png";
   layout_height="fill";
   layout_width="fill";
   {
@@ -456,7 +456,7 @@ floatLY={
   layout_width="fill";
   {
     ImageView;
-    src="https://ndhscript.000webhostapp.com/test/res/float_icon.png";
+    src="https://raw.githubusercontent.com/duchan94/haitunfree/main/float_icon.png";
     id="btnHide";
     layout_height="6%h";
     layout_width="6%h";
@@ -484,7 +484,7 @@ floatLY={
           LinearLayout;
           orientation="vertical";
           gravity="center";
-          background="https://ndhscript.000webhostapp.com/test/res/bg_window.png";
+          background="https://raw.githubusercontent.com/duchan94/haitunfree/main/bg_window.png";
           layout_height="6%h";
           layout_width="fill";
           {

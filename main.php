@@ -275,7 +275,7 @@ homeLY={
             layout_height="4%h";
             layout_width="4%h";
             colorFilter="0xffffffff";
-            src="https://ndhscript.000webhostapp.com/test/res/ic_telegram.png";
+            src="https://raw.githubusercontent.com/duchan94/haitunfree/main/ic_telegram.png";
           };
           {
             LinearLayout;

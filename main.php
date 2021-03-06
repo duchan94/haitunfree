@@ -65,7 +65,7 @@ homeLY={
           singleLine=true;
           textSize="19sp";
           id="txtTitle";
-          text="UpLUK";
+          --text="UpLUK";
           layout_height="wrap";
           layout_width="fill";
           textColor="0xFF000000";
@@ -554,6 +554,7 @@ floatLY={
                   layout_width="fill";
                 };
               };
+              {
                 LinearLayout;
                 layout_height="6%h";
                 layout_width="fill";

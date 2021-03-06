@@ -3,881 +3,433 @@ import "android.app.*"
 import "android.os.*"
 import "android.widget.*"
 import "android.view.*"
-import "android.content.*"
-import "android.provider.*"
-import "android.net.*"
-import "android.graphics.*"
-import "android.graphics.drawable.*"
-import "com.tencent.qq.widget.*"
---import "java.io.File"
 import "AndLua"
-import "zip4j"
+import "http"
+import "android.content.Context"
+import "android.content.Intent"
+import "android.provider.Settings"
+import "android.net.Uri"
+import "android.content.pm.PackageManager"
+import "android.graphics.Typeface"
 
-homeLY={
-  LinearLayout;
-  orientation="vertical";
-  background="https://raw.githubusercontent.com/duchan94/haitunfree/main/bg.png";
-  layout_height="fill";
-  layout_width="fill";
-  {
-    CardView;
-    layout_width="fill";
-    CardElevation="3dp";
-    layout_height="6.5%h";
-    radius="0";
-    {
-      LinearLayout;
-      orientation="horizontal";
-      layout_height="6.5%h";
-      gravity="center";
-      layout_width="fill";
-      {
-        LinearLayout;
-        layout_height="fill";
-        layout_width="1%h";
-      };
-      {
-        LinearLayout;
-        layout_height="5%h";
-        layout_width="5%h";
-        gravity="center";
-        id="btnProfile";
-        {
-          CircleImageView;
-          layout_width="fill";
-          layout_height="fill";
-          src="https://ndhscript.000webhostapp.com/test/res/ic_account.png";
-        };
-      };
-      {
-        LinearLayout;
-        layout_height="fill";
-        layout_width="1%h";
-      };
-      {
-        LinearLayout;
-        orientation="vertical";
-        layout_height="fill";
-        gravity="center_vertical";
-        layout_width="fill";
-        {
-          TextView;
-          singleLine=true;
-          textSize="19sp";
-          id="txtTitle";
-          --text="UpLUK";
-          layout_height="wrap";
-          layout_width="fill";
-          textColor="0xFF000000";
-        };
-        {
-          TextView;
-          singleLine=true;
-          textSize="10sp";
-          id="txtTitleSecond";
-          --text="facts are very different from what you think. WORK TO SLEEP.";
-          layout_height="wrap";
-          layout_width="fill";
-          textColor="0xFF000000";
-        };
-      };
-    };
-  };
-  {
-    LinearLayout;
-    layout_height="2%h";
-    layout_width="fill";
-  };
-  {
-    LinearLayout;
-    layout_width="fill";
-    layout_height="wrap";
-    gravity="center_horizontal";
-    {
-      LinearLayout;
-      orientation="horizontal";
-      layout_height="25%h";
-      gravity="center";
-      layout_width="47%h";
-      {
-        CardView;
-        layout_width="22.5%h";
-        CardElevation="0dp";
-        id="btnStart";
-        layout_height="fill";
-        radius="5dp";
-        backgroundColor="0xB00E6DFF";
-        {
-          LinearLayout;
-          orientation="vertical";
-          layout_height="fill";
-          gravity="center";
-          layout_width="fill";
-          {
-            ImageView;
-            layout_height="7%h";
-            layout_width="7%h";
-            colorFilter="0xffffffff";
-            src="https://ndhscript.000webhostapp.com/test/res/ic_start.png";
-          };
-          {
-            LinearLayout;
-            layout_height="1%h";
-            layout_width="fill";
-          };
-          {
-            TextView;
-            layout_width="wrap";
-            id="txtStart";
-            text="START MENU";
-            textSize="16sp";
-            layout_height="wrap";
-            textColor="0xffffffff";
-          };
-        };
-      };
-      {
-        LinearLayout;
-        layout_height="fill";
-        layout_width="2%h";
-      };
-      {
-        CardView;
-        layout_width="22.5%h";
-        CardElevation="0dp";
-        id="btnStop";
-        layout_height="fill";
-        radius="5dp";
-        backgroundColor="0xB0F70019";
-        {
-          LinearLayout;
-          orientation="vertical";
-          layout_height="fill";
-          gravity="center";
-          layout_width="fill";
-          {
-            ImageView;
-            layout_height="7%h";
-            layout_width="7%h";
-            colorFilter="0xffffffff";
-            src="https://ndhscript.000webhostapp.com/test/res/ic_stop.png";
-          };
-          {
-            LinearLayout;
-            layout_height="1%h";
-            layout_width="fill";
-          };
-          {
-            TextView;
-            layout_width="wrap";
-            id="txtStop";
-            text="STOP MENU";
-            textSize="16sp";
-            layout_height="wrap";
-            textColor="0xffffffff";
-          };
-        };
-      };
-    };
-  };
-  {
-    LinearLayout;
-    layout_height="2%h";
-    layout_width="fill";
-  };
-  {
-    LinearLayout;
-    layout_width="fill";
-    layout_height="wrap";
-    gravity="center_horizontal";
-    {
-      LinearLayout;
-      orientation="horizontal";
-      layout_height="10%h";
-      gravity="center";
-      layout_width="47%h";
-      {
-        CardView;
-        layout_width="47%h";
-        CardElevation="0dp";
-        id="btnStartG";
-        layout_height="fill";
-        radius="5dp";
-        backgroundColor="0xB032C8C7";
-        {
-          LinearLayout;
-          orientation="vertical";
-          layout_height="fill";
-          gravity="center";
-          layout_width="fill";
-          {
-            ImageView;
-            layout_height="4%h";
-            layout_width="4%h";
-            colorFilter="0xffffffff";
-            src="https://ndhscript.000webhostapp.com/test/res/ic_start.png";
-          };
-          {
-            LinearLayout;
-            layout_height="1%h";
-            layout_width="fill";
-          };
-          {
-            TextView;
-            layout_width="wrap";
-            id="txtStartG";
-            text="Run The Game";
-            textSize="14sp";
-            layout_height="wrap";
-            textColor="0xffffffff";
-          };
-        };
-      };
-    };
-  };
-  {
-    LinearLayout;
-    layout_height="2%h";
-    layout_width="fill";
-  };
-  {
-    LinearLayout;
-    layout_width="fill";
-    layout_height="wrap";
-    gravity="center_horizontal";
-    {
-      LinearLayout;
-      orientation="horizontal";
-      layout_height="8%h";
-      gravity="center";
-      layout_width="47%h";
-      {
-        CardView;
-        layout_width="47%h";
-        CardElevation="0dp";
-        id="btnTG";
-        layout_height="fill";
-        radius="5dp";
-        {
-          LinearLayout;
-          orientation="horizontal";
-          layout_height="fill";
-          gravity="center_vertical";
-          layout_width="wrap";
-          {
-            LinearLayout;
-            layout_height="fill";
-            layout_width="1%h";
-          };
-          {
-            ImageView;
-            layout_height="4%h";
-            layout_width="4%h";
-            src="https://raw.githubusercontent.com/duchan94/haitunfree/main/ic_telegram.png";
-          };
-          {
-            LinearLayout;
-            layout_height="fill";
-            layout_width="1%h";
-          };
-          {
-            LinearLayout;
-            orientation="vertical";
-            layout_height="fill";
-            gravity="center_vertical";
-            layout_width="fill";
-            {
-              TextView;
-              layout_width="fill";
-              id="txtTG";
-              text="Join the Community Server";
-              textSize="14sp";
-              layout_height="wrap";
-              textColor="0xFF000000";
-            };
-            {
-              TextView;
-              layout_width="fill";
-              textColor="0xFF000000";
-              text="To chat, get info, ask questions, leave feedback, get the latest updates and the more";
-              textSize="10sp";
-              layout_height="wrap";
-            };
-          };
-        };
-      };
-    };
-  };
-  {
-    LinearLayout;
-    layout_height="2%h";
-    layout_width="fill";
-  };
-  {
-    CardView;
-    layout_width="47%h";
-    radius="5dp";
-    layout_height="wrap";
-    layout_gravity="center_horizontal";
-    backgroundColor="0xFFFFFFFF";
-    {
-      LinearLayout;
-      orientation="vertical";
-      layout_height="wrap";
-      layout_width="fill";
-      {
-        LinearLayout;
-        orientation="horizontal";
-        id="btnHow";
-        layout_height="4%h";
-        gravity="center_vertical";
-        layout_width="fill";
-        {
-          LinearLayout;
-          layout_height="4%h";
-          layout_width="1%h";
-        };
-        {
-          ImageView;
-          layout_height="3%h";
-          layout_width="3%h";
-          colorFilter="0xFF000000";
-          src="https://ndhscript.000webhostapp.com/test/res/ic_help.png";
-        };
-        {
-          LinearLayout;
-          layout_height="4%h";
-          layout_width="1%h";
-        };
-        {
-          LinearLayout;
-          orientation="horizontal";
-          layout_height="fill";
-          gravity="center_vertical";
-          layout_width="fill";
-          {
-            TextView;
-            layout_width="wrap";
-            id="txtHow";
-            text="How to use?";
-            textSize="15sp";
-            layout_height="wrap";
-            textColor="0xFF000000";
-          };
-          {
-            LinearLayout;
-            layout_height="4%h";
-            layout_width="0.5%h";
-          };
-          {
-            TextView;
-            layout_width="wrap";
-            id="txtHowOpen";
-            text="Click to Open";
-            textSize="12sp";
-            layout_height="wrap";
-            textColor="0x93000000";
-          };
-        };
-      };
-      {
-        LinearLayout;
-        orientation="horizontal";
-        visibility="gone";
-        layout_height="wrap";
-        layout_width="wrap";
-        id="BoxHow";
-        {
-          LinearLayout;
-          layout_height="wrap";
-          layout_width="1%h";
-        };
-        {
-          LinearLayout;
-          orientation="vertical";
-          layout_height="wrap";
-          layout_width="wrap";
-          {
-            TextView;
-            layout_width="wrap";
-            textColor="0x93000000";
-            text="No Root:";
-            textSize="14sp";
-            layout_height="wrap";
-          };
-          {
-            TextView;
-            layout_width="wrap";
-            textColor="0x93000000";
-            text="Run Cheat - Game inside virtual app";
-            textSize="10sp";
-            layout_height="wrap";
-          };
-          {
-            LinearLayout;
-            layout_height="1%h";
-            layout_width="fill";
-          };
-          {
-            TextView;
-            layout_width="wrap";
-            textColor="0x93000000";
-            text="Root:";
-            textSize="14sp";
-            layout_height="wrap";
-          };
-          {
-            TextView;
-            layout_width="wrap";
-            textColor="0x93000000";
-            text="Give Cheat - Game root permission and magisk hide Game";
-            textSize="10sp";
-            layout_height="wrap";
-          };
-          {
-            LinearLayout;
-            layout_height="1%h";
-            layout_width="fill";
-          };
-        };
-      };
-    };
-  };
-};
-------------------
 
-floatLY={
+
+layout={
   LinearLayout;
-  orientation="horizontal";
-  id="btnHideOpen";
-  layout_height="fill";
-  layout_width="fill";
-  {
-    ImageView;
-    src="https://raw.githubusercontent.com/duchan94/haitunfree/main/float_icon.png";
-    id="btnHide";
-    layout_height="6%h";
-    layout_width="6%h";
-  };
+  background="https://raw.githubusercontent.com/duchan94/haitunfree/main/bg.jpg";
   {
     LinearLayout;
     orientation="vertical";
-    layout_height="fill";
-    visibility="gone";
-    id="fullV";
-    layout_width="fill";
+    layout_width="-1";
+    gravity="center";
+    layout_height="-1";
     {
-      CardView;
-      layout_height="42%h";
-      CardElevation="0dp";
-      backgroundColor="0x4B894AF1";
-      radius="15";
-      layout_width="34%h";
+      LinearLayout;
+      layout_height="5%h";
+      layout_width="-1";
+    };
+    {
+      Button;
+      layout_height="7%h";
+      layout_width="60%w";
+      id="showhack";
+      text="开启视距";
+      textColor="0xffffffff";
+    };
+    {
+      LinearLayout;
+      layout_height="3%h";
+      layout_width="-1";
+    };
+    {
+      Button;
+      layout_height="7%h";
+      layout_width="60%w";
+      id="startgame";
+      text="打开游戏";
+      textColor="0xffffffff";
+    };
+    {
+      LinearLayout;
+      layout_height="3%h";
+      layout_width="-1";
+    };
+    {
+      Button;
+      layout_height="7%h";
+      layout_width="60%w";
+      id="tt";
+      text="加入Q群";
+      textColor="0xffffffff";
+    };
+
+  };
+};
+
+activity.setContentView(loadlayout(layout))
+
+
+-----------------
+
+minlay={
+  LinearLayout;
+  layout_width="40dp";
+  layout_height="400dp";
+  {
+    ImageView;
+    layout_width="50dp";
+    src="https://raw.githubusercontent.com/duchan94/haitunfree/main/float_icon.png";
+    id="Win_minWindow";
+    layout_height="50dp";
+  };
+};
+
+winlay={
+  LinearLayout,
+  layout_width="-1",
+  layout_height="-1",
+  background="transparent",
+  {
+    CardView,
+    id="win_mainview",
+    layout_width="60%w",
+    layout_height="35%h";
+    layout_margin="5dp",
+    CardElevation="5dp",
+    {
+      LinearLayout;
+      orientation="vertical";
+      layout_width="fill_parent";
+      background="transparent",
+
       {
         LinearLayout;
-        orientation="vertical";
-        layout_height="fill";
-        layout_width="fill";
+        layout_width="fill_parent";
+        background="transparent";
+        gravity="center";
         {
           LinearLayout;
           orientation="vertical";
+          layout_height="wrap";
+          layout_width="-1";
           gravity="center";
-          background="https://raw.githubusercontent.com/duchan94/haitunfree/main/bg_window.png";
-          layout_height="6%h";
-          layout_width="fill";
-          {
-            TextView;
-            text="HAITUN";
-            layout_height="wrap";
-            textColor="0xFF80FF00";
-            textSize="16sp";
-            layout_width="wrap";
-          };
+          background="transparent",
+          id="win_move1";
+          padding="10";
+
           {
             LinearLayout;
             orientation="horizontal";
-            layout_height="wrap";
-            layout_width="wrap";
+            layout_width="-1";
+            layout_height="fill";
+            gravity="center_vertical|center_horizontal";
+            padding="5";
             {
-              TextView;
-              text="Hack Wild Rift FREE 2.1.0.3851";
-              layout_height="wrap";
-              textColor="0xFFFFFF00";
-              textSize="10sp";
-              layout_width="wrap";
+              ImageView;
+
+              id="close";
+              translationX="20dp";
+              layout_height="7.5%h";
+              layout_width="11%w";
+              colorFilter="#fffffff";
+              src="close.png",
+
             };
-            {
-              TextView;
-              text=" | ";
-              layout_height="wrap";
-              textColor="0xFFFFFFFF";
-              textSize="10sp";
-              layout_width="wrap";
-            };
-            {
-              TextView;
-              text="Checker";
-              id="t1";
-              layout_height="wrap";
-              textColor="0xFFFFB100";
-              textSize="10sp";
-              layout_width="wrap";
-            };
-          };
-        };
-        {
-          LinearLayout;
-          layout_height="wrap";
-          layout_width="fill";
-          {
-            ScrollView;
-            layout_height="20%h";
-            layout_width="fill";
             {
               LinearLayout;
-              padding="0.5%h";
+              layout_width="4%w";
+              layout_height="wrap";
+            };
+            {
+              LinearLayout;
               orientation="vertical";
-              layout_height="fill";
-              layout_width="fill";
+              gravity="center_horizontal|center_vertical";
               {
-                LinearLayout;
-                layout_height="6%h";
-                layout_width="fill";
-                {
-                  ToggleButton;
-                  text="OFF CAMERA VIEW";
-                  layout_height="fill";
-                  textOn="OFF CAMERA VIEW";
-                  id="x0";
-                  textColor="0xFF000000";
-                  textOff="OFF CAMERA VIEW";
-                  layout_width="fill";
-                };
-              };
-              {
-                LinearLayout;
-                layout_height="6%h";
-                layout_width="fill";
-                {
-                  ToggleButton;
-                  text="CAMERA VIEW X1";
-                  layout_height="fill";
-                  textOn="CAMERA VIEW X1";
-                  id="x1";
-                  textColor="0xFF000000";
-                  textOff="CAMERA VIEW X1";
-                  layout_width="fill";
-                };
-              };
-              {
-                LinearLayout;
-                layout_height="6%h";
-                layout_width="fill";
-                {
-                  ToggleButton;
-                  text="CAMERA VIEW X1.5";
-                  layout_height="fill";
-                  textOn="CAMERA VIEW X1.5";
-                  id="x15";
-                  textColor="0xFF000000";
-                  textOff="CAMERA VIEW X1.5";
-                  layout_width="fill";
-                };
-              };
-              {
-                LinearLayout;
-                layout_height="6%h";
-                layout_width="fill";
-                {
-                  ToggleButton;
-                  text="CAMERA VIEW X2";
-                  layout_height="fill";
-                  textOn="CAMERA VIEW X2";
-                  id="x2";
-                  textColor="0xFF000000";
-                  textOff="CAMERA VIEW X2";
-                  layout_width="fill";
-                };
-              };
-              {
-                LinearLayout;
-                layout_height="6%h";
-                layout_width="fill";
-                {
-                  ToggleButton;
-                  text="CAMERA VIEW X3";
-                  layout_height="fill";
-                  textOn="CAMERA VIEW X3";
-                  id="x3";
-                  textColor="0xFF000000";
-                  textOff="CAMERA VIEW X3";
-                  layout_width="fill";
-                };
-              };
+                TextView;
+                text="     Q群922434            ";
+                id="win_move2",
+                textSize="20dp";
+                textColor="#00FFFF";
+              },
+
+            };
+            {
+
+
+              ImageView,
+              translationX="-20dp";
+              layout_height="7.5%h";
+              layout_width="11%w";
+              id="changeWindow";
+              src="min.png",
             };
           };
         };
-        {
-          LinearLayout;
-          layout_height="wrap";
-          layout_width="fill";
+      };
+      {
+        PageView,
+        id="pg",
+        layout_width="fill",
+        layout_height="fill",
+        pages={
           {
             LinearLayout;
-            orientation="horizontal";
-            gravity="center_vertical";
-            backgroundColor="0xB1000000";
-            layout_height="6%h";
-            layout_width="fill";
+            orientation="vertical";
             {
-              TextView;
-              text="❌";
-              gravity="center";
-              id="close";
-              textColor="0xFFFFFFFF";
-              layout_height="fill";
-              layout_width="17%h";
-            };
-            {
-              TextView;
-              text="⛔";
-              gravity="center";
-              id="min";
-              textColor="0xFFFFFFFF";
-              layout_height="fill";
-              layout_width="17%h";
+              ScrollView;
+              layout_width="fill_parent";
+              layout_height="23%h",
+              layout_gravity="center_horizontal";
+              {
+                LinearLayout;
+                layout_height="-1";
+                layout_width="-1";
+                orientation="vertical";
+                {
+                  LinearLayout;
+                  id="_drawer_header";
+                  layout_height="-2";
+                  layout_width="-1";
+                  orientation="vertical";
+                  {
+                    LinearLayout;
+                    layout_height="-1";
+                    layout_width="-1";
+                    orientation="vertical";
+                    padding="5";
+                    {
+                      LinearLayout;
+                      orientation="horizontal";
+                      layout_height="1%h";
+                      layout_width="-1";
+                    };
+                    --
+                    --
+                    --
+                    {
+                      ToggleButton;
+                      layout_width="-1";
+                      layout_height="wrap";
+                      textColor="0xFFFFFFFF";
+                      id="Fiture1";
+                      text="关闭视距";
+                      textOn="关闭视距";
+                      textOff="关闭视距";
+                      textSize="14dp";
+                      backgroundColor="0xFF000000";
+                    };
+                    {
+                      LinearLayout;
+                      layout_width="fill";
+                      layout_height="0.2%h";
+                    };
+                    --
+                    {
+                      ToggleButton;
+                      layout_width="-1";
+                      layout_height="wrap";
+                      textColor="0xFFFFFFFF";
+                      id="Fiture2";
+                      text="1倍视距";
+                      textOn="1倍视距";
+                      textOff="1倍视距";
+                      textSize="14dp";
+                      backgroundColor="0xFF000000";
+                    };
+                    {
+                      LinearLayout;
+                      layout_width="fill";
+                      layout_height="0.2%h";
+                    };
+                    --
+                    {
+                      ToggleButton;
+                      layout_width="-1";
+                      layout_height="wrap";
+                      textColor="0xFFFFFFFF";
+                      id="Fiture3";
+                      text="1.5倍视距";
+                      textOn="1.5倍视距";
+                      textOff="1.5倍视距";
+                      textSize="14dp";
+                      backgroundColor="0xFF000000";
+                    };
+                    {
+                      LinearLayout;
+                      layout_width="fill";
+                      layout_height="0.2%h";
+                    };
+                    {
+                      ToggleButton;
+                      layout_width="-1";
+                      layout_height="wrap";
+                      textColor="0xFFFFFFFF";
+                      id="Fiture4";
+                      text="2倍视距";
+                      textOn="2倍视距";
+                      textOff="2倍视距";
+                      textSize="14dp";
+                      backgroundColor="0xFF000000";
+                    };
+                  };
+                };
+              };
             };
           };
         };
       };
     };
   };
-};
+}
 
 
 
-
-activity.setTheme(android.R.style.Theme_DeviceDefault_Light)
---activity.setTheme(R.AndLua14)
-activity.setContentView(loadlayout(homeLY))
-activity.ActionBar.hide()
-activity.overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
-
-tickexit=0
-function onKeyDown(code,event)
-  if string.find(tostring(event),"KEYCODE_BACK") ~= nil then
-    if tickexit+3 > tonumber(os.time()) then
-      activity.finish()
-     else
-      print("Press back again to exit app")
-      tickexit=tonumber(os.time())
-    end
-    return true
-  end
-end
-
-if Settings.canDrawOverlays(activity) then
- else
-  dialog=AlertDialog.Builder(this)
-  .setTitle("Permission !")
-  .setMessage("Floating windows are not allowed,\nplease give floating window permission!")
-  .setCancelable(false)
-  .setPositiveButton("Allow",
-  {onClick=function(v)
-      intent=Intent("android.settings.action.MANAGE_OVERLAY_PERMISSION");
-      intent.setData(Uri.parse("package:" .. this.getPackageName())); this.startActivity(intent);
-    end})
-  .show()
-end
-
-
-local login
-local pref = activity.getSharedPreferences("plexuslogin", Context.MODE_PRIVATE)
-login = pref.getString("ndhlog", "")
-exp = pref.getString("expired", "")
-
-txtTitle.setText(login)
-txtTitleSecond.setText("Expired : "..exp)
-
-RippleHelper(btnStart).RippleColor=0x09000000
-RippleHelper(btnStop).RippleColor=0x09000000
-RippleHelper(btnStartG).RippleColor=0x09000000
-RippleHelper(btnTG).RippleColor=0x09000000
-
-function btnStartG.onClick()
-  MyMenuDialog=MenuDialog(this);
-  MyMenuDialog.setTitle("SELECT YOUR WILD RIFT VERSION",MenuDialog.setTextColor.DEFAULT);
-
-  MyMenuDialog.addItem("WILD RIFT [GL]",MenuDialog.setTextColor.BLACK,
-  {onClick = function()
-      if pcall(function() activity.getPackageManager().getPackageInfo("com.riotgames.league.wildrift",0) end) then
-        this.startActivity(activity.getPackageManager().getLaunchIntentForPackage("com.riotgames.league.wildrift"))
-       else
-        viewIntent = Intent("android.intent.action.VIEW",Uri.parse("https://apkcombo.com/tw-tw/league-of-legends-wild-rift/com.riotgames.league.wildrift/download/apk"))
-        activity.startActivity(viewIntent)
-        print("Can't find the game, please install armeabi-v7a")
-      end
-    end});
-
-
-  MyMenuDialog.addItem("WILD RIFT [VN]",MenuDialog.setTextColor.BLACK,
-  {onClick = function()
-      if pcall(function() activity.getPackageManager().getPackageInfo("com.riotgames.league.wildriftvn",0) end) then
-        this.startActivity(activity.getPackageManager().getLaunchIntentForPackage("com.riotgames.league.wildriftvn"))
-       else
-        viewIntent = Intent("android.intent.action.VIEW",Uri.parse("https://apkcombo.com/vi-vn/lmht-t%E1%BB%91c-chi%E1%BA%BFn/com.riotgames.league.wildriftvn/download/apk"))
-        activity.startActivity(viewIntent)
-        print("Can't find the game, please install armeabi-v7a")
-      end
-    end});
-
-  MyMenuDialog.addItem("WILD RIFT [TW]",MenuDialog.setTextColor.BLACK,
-  {onClick = function()
-      if pcall(function() activity.getPackageManager().getPackageInfo("com.riotgames.league.wildrift",0) end) then
-        this.startActivity(activity.getPackageManager().getLaunchIntentForPackage("com.riotgames.league.wildrift"))
-       else
-        viewIntent = Intent("android.intent.action.VIEW",Uri.parse("https://apkcombo.com/tw-tw/league-of-legends-wild-rift/com.riotgames.league.wildrift/download/apk"))
-        activity.startActivity(viewIntent)
-        print("Can't find the game, please install armeabi-v7a")
-      end
-    end});
-
-  MyMenuDialog.show();
-end
-
-function btnTG.onClick()
-  viewIntent = Intent("android.intent.action.VIEW",Uri.parse("https://t.me/grduchan"))
-  activity.startActivity(viewIntent)
-end
-
-function btnHow.onClick()
-  txtHowOpen.setVisibility(View.GONE)
-  BoxHow.setVisibility(View.VISIBLE)
-end
-
-FloatParameter=activity.getSystemService(Context.WINDOW_SERVICE)
+LayoutVIP=activity.getSystemService(Context.WINDOW_SERVICE)
 HasFocus=false
-FLOATNJENG =WindowManager.LayoutParams()
-if Build.VERSION.SDK_INT >= 26 then FLOATNJENG.type =WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
- else FLOATNJENG.type =WindowManager.LayoutParams.TYPE_SYSTEM_ALERT
+WmHz =WindowManager.LayoutParams()
+if Build.VERSION.SDK_INT >= 26 then WmHz.type =WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
+ else WmHz.type =WindowManager.LayoutParams.TYPE_SYSTEM_ALERT
 end
 import "android.graphics.PixelFormat"
-FLOATNJENG.format =PixelFormat.RGBA_8888
-FLOATNJENG.x = 0
-FLOATNJENG.y = 0
-FLOATNJENG.flags=WindowManager.LayoutParams().FLAG_NOT_FOCUSABLE
-FLOATNJENG.gravity = Gravity.LEFT | Gravity.TOP
-FLOATNJENG.width = WindowManager.LayoutParams.WRAP_CONTENT
-FLOATNJENG.height = WindowManager.LayoutParams.WRAP_CONTENT
-floatWindow = loadlayout(floatLY)
-isMax=false
-
-function btnHide.OnTouchListener(v,event)
+WmHz.format =PixelFormat.RGBA_8888
+WmHz.flags=WindowManager.LayoutParams().FLAG_NOT_FOCUSABLE
+WmHz.gravity = Gravity.LEFT| Gravity.TOP
+WmHz.x = 333
+WmHz.y = 333
+WmHz.width = WindowManager.LayoutParams.WRAP_CONTENT
+WmHz.height = WindowManager.LayoutParams.WRAP_CONTENT
+mainWindow = loadlayout(winlay)
+minWindow = loadlayout(minlay)
+function close.onClick(v)
+  HasLaunch=false
+  LayoutVIP.removeView(mainWindow)
+end
+isMax=true
+function changeWindow.onClick()
+  if isMax==false then
+    isMax=true
+    LayoutVIP.removeView(minWindow)
+    LayoutVIP.addView(mainWindow,WmHz)
+   else
+    isMax=false
+    LayoutVIP.removeView(mainWindow)
+    LayoutVIP.addView(minWindow,WmHz)
+  end end
+function Win_minWindow.onClick(v)
+  if isMax==false then
+    isMax=true
+    LayoutVIP.removeView(minWindow)
+    LayoutVIP.addView(mainWindow,WmHz)
+   else
+    isMax=false
+    LayoutVIP.removeView(mainWindow)
+    LayoutVIP.addView(minWindow,WmHz)
+  end end
+function Win_minWindow.OnTouchListener(v,event)
   if event.getAction()==MotionEvent.ACTION_DOWN then
     firstX=event.getRawX()
     firstY=event.getRawY()
-    wmX=FLOATNJENG.x
-    wmY=FLOATNJENG.y
+    wmX=WmHz.x
+    wmY=WmHz.y
    elseif event.getAction()==MotionEvent.ACTION_MOVE then
-    FLOATNJENG.x=wmX+(event.getRawX()-firstX)
-    FLOATNJENG.y=wmY+(event.getRawY()-firstY)
-    FloatParameter.updateViewLayout(floatWindow,FLOATNJENG)
+    WmHz.x=wmX+(event.getRawX()-firstX)
+    WmHz.y=wmY+(event.getRawY()-firstY)
+    LayoutVIP.updateViewLayout(minWindow,WmHz)
    elseif event.getAction()==MotionEvent.ACTION_UP then
-   else
   end return false end
-
-function btnHideOpen.OnTouchListener(v,event)
+function win_move1.OnTouchListener(v,event)
   if event.getAction()==MotionEvent.ACTION_DOWN then
     firstX=event.getRawX()
     firstY=event.getRawY()
-    wmX=FLOATNJENG.x
-    wmY=FLOATNJENG.y
+    wmX=WmHz.x
+    wmY=WmHz.y
    elseif event.getAction()==MotionEvent.ACTION_MOVE then
-    FLOATNJENG.x=wmX+(event.getRawX()-firstX)
-    FLOATNJENG.y=wmY+(event.getRawY()-firstY)
-    FloatParameter.updateViewLayout(floatWindow,FLOATNJENG)
+    WmHz.x=wmX+(event.getRawX()-firstX)
+    WmHz.y=wmY+(event.getRawY()-firstY)
+    LayoutVIP.updateViewLayout(mainWindow,WmHz)
    elseif event.getAction()==MotionEvent.ACTION_UP then
-   else
-  end return false end
+  end return true end
+function win_move2.OnTouchListener(v,event)
+  if event.getAction()==MotionEvent.ACTION_DOWN then
+    firstX=event.getRawX()
+    firstY=event.getRawY()
+    wmX=WmHz.x
+    wmY=WmHz.y
+   elseif event.getAction()==MotionEvent.ACTION_MOVE then
+    WmHz.x=wmX+(event.getRawX()-firstX)
+    WmHz.y=wmY+(event.getRawY()-firstY)
+    LayoutVIP.updateViewLayout(mainWindow,WmHz)
+   elseif event.getAction()==MotionEvent.ACTION_UP then
+  end return true end
+pg.addOnPageChangeListener{
+  onPageScrolled=function(a,b,c)
+  end,
+  onPageSelected=function(page)
+  end,
+  onPageScrollStateChanged=function(state)
+  end,}
 
-function CircleButton(view,InsideColor,STR,radiu)
+
+
+showhack.onClick=function()
+  if HasLaunch==true then return else
+    if Settings.canDrawOverlays(activity) then else intent=Intent("android.settings.action.MANAGE_OVERLAY_PERMISSION");
+      intent.setData(Uri.parse("package:" .. this.getPackageName())); this.startActivity(intent); end HasLaunch=true
+    local ret={pcall(function() LayoutVIP.addView(mainWindow,WmHz) end)}
+    if ret[1]==false then end end import "java.io.*" file,err=io.open("/data/data/andlua.layout.vip/files/Memory")
+  if err==nil then 打开app("andlua.layout.vip") else end end
+
+function startgame.onClick()
+  this.startActivity(activity.getPackageManager().getLaunchIntentForPackage("com.riotgames.league.wildrift"));
+end
+
+function tt.onClick()
+  url = "https://jq.qq.com/?_wv=1027&k=l3AGAIcu"
+  activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+end
+
+
+
+function CircleButtonZ(view,InsideColor,radiu,InsideColor1)
   import "android.graphics.drawable.GradientDrawable"
   drawable = GradientDrawable()
   drawable.setShape(GradientDrawable.RECTANGLE)
+  drawable.setCornerRadii({radiu, radiu, radiu, radiu, radiu, radiu, radiu, radiu})
   drawable.setColor(InsideColor)
-  drawable.setStroke(5, STR)
-  drawable.setCornerRadii({radiu,radiu,radiu,radiu,radiu,radiu,radiu,radiu});
+  drawable.setStroke(3, InsideColor1)
   view.setBackgroundDrawable(drawable)
 end
 
-function btnHide.onClick(v)
-  btnHide.setVisibility(View.GONE)
-  fullV.setVisibility(View.VISIBLE)
-end
-
-function min.onClick(v)
-  fullV.setVisibility(View.GONE)
-  btnHide.setVisibility(View.VISIBLE)
-end
-
-function close.onClick(v)
-  if isMax==true then
-    isMax=false
-    FloatParameter.removeView(floatWindow)
-    fullV.setVisibility(View.GONE)
-    btnHide.setVisibility(View.VISIBLE)
-    print("The menu is closed")
-  end
-end
-
-function btnStart.onClick()
-  if isMax==false then
-    isMax=true
-    FloatParameter.addView(floatWindow,FLOATNJENG)
-    print("Injector by Đức Hân")
-   else
-    print("Please close the current menu to open a new menu!")
-  end
-end
-
-function btnStop.onClick()
-  if isMax==true then
-    isMax=false
-    FloatParameter.removeView(floatWindow)
-    fullV.setVisibility(View.GONE)
-    btnHide.setVisibility(View.VISIBLE)
-    print("The menu is closed")
-  end
-end
+CircleButtonZ(win_mainview,0xBC006A00,80,0x00000000)
+CircleButtonZ(showhack,0xA6FF0000,360,0xffffffff)
+CircleButtonZ(startgame,0xA6FF0000,360,0xffffffff)
+CircleButtonZ(tt,0xA6FF0000,360,0xffffffff)
+win_move2.setTypeface(Typeface.DEFAULT_BOLD)
 
 
---------------
+
 
 function root(Patch1,MRDmod)
   local check,hgm,number=os.execute("su") if check == true HGM=("su -c ") t1.Text=("ROOT") else HGM=("") t1.Text=("NOROOT") end path=activity.getLuaDir("res.utf") dpath=activity.getLuaDir() pass=("dcihngnod") if zip4j.unZipDir(path,dpath,pass)==true then Patch2=activity.getLuaDir(Patch1) os.execute(HGM.."chmod 777 "..Patch2) Runtime.getRuntime().exec(HGM..""..Patch2)MD提示(MRDmod,"#FF009DFF","#FFFFFFFF","9","50") end
 end
 
+--
+--
+--
 
-CircleButton(x0,0xA0FFFF22,0x7000FF00,10)
-function x0.onClick()
-  root("res/x0_off","OFF CAMERA VIEW")
+
+function Fiture1.OnCheckedChangeListener()
+  root("res/x0_off","Active")
 end
 
-CircleButton(x1,0xA0FFFF22,0x7000FF00,10)
-function x1.onClick()
-  root("res/x1_on","VIEW X1")
+function Fiture2.OnCheckedChangeListener()
+  root("res/x1_on","Active")
 end
 
-CircleButton(x15,0xA0FFFF22,0x7000FF00,10)
-function x15.onClick()
-  root("res/x1.5_on","VIEW X1.5")
+function Fiture3.OnCheckedChangeListener()
+  root("res/x1.5_on","Active")
 end
 
-CircleButton(x2,0xA0FFFF22,0x7000FF00,10)
-function x2.onClick()
-  root("res/x2_on","VIEW X2")
-end
-
-CircleButton(x3,0xA0FFFF22,0x7000FF00,10)
-function x3.onClick()
-  root("res/x3_on","VIEW X3")
+function Fiture4.OnCheckedChangeListener()
+  root("res/x2_on","Active")
 end

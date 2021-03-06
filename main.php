@@ -12,6 +12,7 @@ import "com.tencent.qq.widget.*"
 --import "java.io.File"
 import "AndLua"
 import "zip4j"
+import "http"
 
 homeLY={
   LinearLayout;

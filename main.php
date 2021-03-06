@@ -16,7 +16,7 @@ import "zip4j"
 homeLY={
   LinearLayout;
   orientation="vertical";
-  background="https://ndhscript.000webhostapp.com/test/res/bg.png";
+  background="https://raw.githubusercontent.com/duchan94/haitunfree/main/bg.png";
   layout_height="fill";
   layout_width="fill";
   {
@@ -258,7 +258,6 @@ homeLY={
         id="btnTG";
         layout_height="fill";
         radius="5dp";
-        backgroundColor="0xB07289D9";
         {
           LinearLayout;
           orientation="horizontal";
@@ -274,8 +273,7 @@ homeLY={
             ImageView;
             layout_height="4%h";
             layout_width="4%h";
-            colorFilter="0xffffffff";
-            src="https://ndhscript.000webhostapp.com/test/res/ic_telegram.png";
+            src="https://raw.githubusercontent.com/duchan94/haitunfree/main/ic_telegram.png";
           };
           {
             LinearLayout;
@@ -295,12 +293,12 @@ homeLY={
               text="Join the Community Server";
               textSize="14sp";
               layout_height="wrap";
-              textColor="0xFFFFFFFF";
+              textColor="0xFF000000";
             };
             {
               TextView;
               layout_width="fill";
-              textColor="0xFFFFFFFF";
+              textColor="0xFF000000";
               text="To chat, get info, ask questions, leave feedback, get the latest updates and the more";
               textSize="10sp";
               layout_height="wrap";
@@ -456,7 +454,7 @@ floatLY={
   layout_width="fill";
   {
     ImageView;
-    src="https://ndhscript.000webhostapp.com/test/res/float_icon.png";
+    src="https://raw.githubusercontent.com/duchan94/haitunfree/main/float_icon.png";
     id="btnHide";
     layout_height="6%h";
     layout_width="6%h";
@@ -484,12 +482,12 @@ floatLY={
           LinearLayout;
           orientation="vertical";
           gravity="center";
-          background="https://ndhscript.000webhostapp.com/test/res/bg_window.png";
+          background="https://raw.githubusercontent.com/duchan94/haitunfree/main/bg_window.png";
           layout_height="6%h";
           layout_width="fill";
           {
             TextView;
-            text="NGUYỄN ĐỨC HÂN";
+            text="HAITUN";
             layout_height="wrap";
             textColor="0xFF80FF00";
             textSize="16sp";
@@ -502,7 +500,7 @@ floatLY={
             layout_width="wrap";
             {
               TextView;
-              text="Hack Wild Rift 2.1.0.3851";
+              text="Hack Wild Rift FREE 2.1.0.3851";
               layout_height="wrap";
               textColor="0xFFFFFF00";
               textSize="10sp";
@@ -533,7 +531,7 @@ floatLY={
           layout_width="fill";
           {
             ScrollView;
-            layout_height="30%h";
+            layout_height="20%h";
             layout_width="fill";
             {
               LinearLayout;
@@ -547,42 +545,12 @@ floatLY={
                 layout_width="fill";
                 {
                   ToggleButton;
-                  text="HACK MAP: OFF";
+                  text="OFF CAMERA VIEW";
                   layout_height="fill";
-                  textOn="HACK MAP: ON";
-                  id="map";
-                  textColor="0xFFFFFFFF";
-                  textOff="HACK MAP: OFF";
-                  layout_width="fill";
-                };
-              };
-              {
-                LinearLayout;
-                layout_height="6%h";
-                layout_width="fill";
-                {
-                  ToggleButton;
-                  text="OFF CAMERA ON FOG";
-                  layout_height="fill";
-                  textOn="OFF CAMERA ON FOG";
-                  id="offfogview";
+                  textOn="OFF CAMERA VIEW";
+                  id="x0";
                   textColor="0xFF000000";
-                  textOff="OFF CAMERA ON FOG";
-                  layout_width="fill";
-                };
-              };
-              {
-                LinearLayout;
-                layout_height="6%h";
-                layout_width="fill";
-                {
-                  ToggleButton;
-                  text="NO FOG";
-                  layout_height="fill";
-                  textOn="NO FOG";
-                  id="nofog";
-                  textColor="0xFF000000";
-                  textOff="NO FOG";
+                  textOff="OFF CAMERA VIEW";
                   layout_width="fill";
                 };
               };
@@ -726,20 +694,6 @@ local login
 local pref = activity.getSharedPreferences("plexuslogin", Context.MODE_PRIVATE)
 login = pref.getString("ndhlog", "")
 exp = pref.getString("expired", "")
-human = pref.getString("human", "")
-
-if human == "1" then
-  local pref = activity.getSharedPreferences("plexuslogin", Context.MODE_PRIVATE)
-  local save = pref.edit()
-  save.putString("human", "0")
-  save.commit()
- else
-  local pref = activity.getSharedPreferences("plexuslogin", Context.MODE_PRIVATE)
-  local save = pref.edit()
-  save.putString("human", "0")
-  save.commit()
-  os.exit()
-end
 
 txtTitle.setText(login)
 txtTitleSecond.setText("Expired : "..exp)
@@ -903,52 +857,27 @@ function root(Patch1,MRDmod)
 end
 
 
-CircleButton(map,0xA0FF0000,0xFF894AF1,10)
-function map.onClick()
-  if map.checked then
-    CircleButton(map,0x5600FF00,0xFF894AF1,10)
-    root("res/kill","@duchan94")
-    root("res/map_on","ON HACK MAP")
-   else
-    CircleButton(map,0xA0FF0000,0xFF894AF1,10)
-    root("res/kill","@duchan94")
-    root("res/map_off","OFF HACK MAP")
-  end
-end
-
-CircleButton(offfogview,0xA0FFFF22,0x7000FF00,10)
-function offfogview.onClick()
-  root("res/kill","@duchan94")
+CircleButton(x0,0xA0FFFF22,0x7000FF00,10)
+function x0.onClick()
   root("res/x0_off","OFF CAMERA VIEW")
-  root("res/nofog_off","ON FOG")
-end
-
-CircleButton(nofog,0xA0FFFF22,0x7000FF00,10)
-function nofog.onClick()
-  root("res/kill","@duchan94")
-  root("res/nofog_on","NO FOG")
 end
 
 CircleButton(x1,0xA0FFFF22,0x7000FF00,10)
 function x1.onClick()
-  root("res/kill","@duchan94")
   root("res/x1_on","VIEW X1")
 end
 
 CircleButton(x15,0xA0FFFF22,0x7000FF00,10)
 function x15.onClick()
-  root("res/kill","@duchan94")
   root("res/x1.5_on","VIEW X1.5")
 end
 
 CircleButton(x2,0xA0FFFF22,0x7000FF00,10)
 function x2.onClick()
-  root("res/kill","@duchan94")
   root("res/x2_on","VIEW X2")
 end
 
 CircleButton(x3,0xA0FFFF22,0x7000FF00,10)
 function x3.onClick()
-  root("res/kill","@duchan94")
   root("res/x3_on","VIEW X3")
 end

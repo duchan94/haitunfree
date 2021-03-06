@@ -531,7 +531,7 @@ floatLY={
           layout_width="fill";
           {
             ScrollView;
-            layout_height="20%h";
+            layout_height="30%h";
             layout_width="fill";
             {
               LinearLayout;

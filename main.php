@@ -458,7 +458,7 @@ floatLY={
     ImageView;
     src="https://raw.githubusercontent.com/duchan94/haitunfree/main/float_icon.png";
     id="btnHide";
-    layout_height="6%h";
+    layout_height="4%h";
     layout_width="6%h";
   };
   {

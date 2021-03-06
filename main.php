@@ -545,6 +545,20 @@ floatLY={
                 layout_width="fill";
                 {
                   ToggleButton;
+                  text="OFF CAMERA VIEW";
+                  layout_height="fill";
+                  textOn="OFF CAMERA VIEW";
+                  id="x0";
+                  textColor="0xFF000000";
+                  textOff="OFF CAMERA VIEW";
+                  layout_width="fill";
+                };
+              };
+                LinearLayout;
+                layout_height="6%h";
+                layout_width="fill";
+                {
+                  ToggleButton;
                   text="CAMERA VIEW X1";
                   layout_height="fill";
                   textOn="CAMERA VIEW X1";
@@ -842,6 +856,10 @@ function root(Patch1,MRDmod)
 end
 
 
+CircleButton(x0,0xA0FFFF22,0x7000FF00,10)
+function x0.onClick()
+  root("res/x0_off","OFF CAMERA VIEW")
+end
 
 CircleButton(x1,0xA0FFFF22,0x7000FF00,10)
 function x1.onClick()

@@ -445,7 +445,6 @@ homeLY={
   };
 };
 ------------------
-
 floatLY={
   LinearLayout;
   orientation="horizontal";
@@ -539,7 +538,7 @@ floatLY={
               orientation="vertical";
               layout_height="fill";
               layout_width="fill";
-              {
+
                 LinearLayout;
                 layout_height="6%h";
                 layout_width="fill";

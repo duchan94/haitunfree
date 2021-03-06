@@ -472,7 +472,7 @@ floatLY={
       CardElevation="0dp";
       backgroundColor="0x4B894AF1";
       radius="15";
-      layout_width="34%h";
+      layout_width="44%h";
       {
         LinearLayout;
         orientation="vertical";
@@ -483,7 +483,7 @@ floatLY={
           orientation="vertical";
           gravity="center";
           background="https://raw.githubusercontent.com/duchan94/haitunfree/main/bg_window.png";
-          layout_height="6%h";
+          layout_height="7%h";
           layout_width="fill";
           {
             TextView;

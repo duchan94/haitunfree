@@ -258,7 +258,6 @@ homeLY={
         id="btnTG";
         layout_height="fill";
         radius="5dp";
-        backgroundColor="0xB07289D9";
         {
           LinearLayout;
           orientation="horizontal";

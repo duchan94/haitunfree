@@ -445,6 +445,7 @@ homeLY={
   };
 };
 ------------------
+
 floatLY={
   LinearLayout;
   orientation="horizontal";
@@ -530,7 +531,7 @@ floatLY={
           layout_width="fill";
           {
             ScrollView;
-            layout_height="30%h";
+            layout_height="20%h";
             layout_width="fill";
             {
               LinearLayout;
@@ -538,7 +539,7 @@ floatLY={
               orientation="vertical";
               layout_height="fill";
               layout_width="fill";
-
+              {
                 LinearLayout;
                 layout_height="6%h";
                 layout_width="fill";

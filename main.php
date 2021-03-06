@@ -293,12 +293,12 @@ homeLY={
               text="Join the Community Server";
               textSize="14sp";
               layout_height="wrap";
-              textColor="#FF000000";
+              textColor="0xFF000000";
             };
             {
               TextView;
               layout_width="fill";
-              textColor="FF000000";
+              textColor="0xFF000000";
               text="To chat, get info, ask questions, leave feedback, get the latest updates and the more";
               textSize="10sp";
               layout_height="wrap";
